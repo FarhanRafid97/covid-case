@@ -1,0 +1,82 @@
+.home {
+  width: 100%;
+  display: flex;
+  background-color: white;
+  margin-bottom: 55px;
+}
+.container-home {
+  display: flex;
+  width: 85%;
+  margin: auto;
+  height: 85vh;
+}
+
+.content1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  flex: 1;
+  padding: 0 25px;
+}
+
+.text-content1 {
+  display: flex;
+
+  margin: auto 0;
+  padding: 5px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 24px;
+  text-align: start;
+  row-gap: 14px;
+}
+.text-content1 h3 {
+  color: black;
+  font-size: 24px;
+  font-weight: 400;
+}
+.content2 {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  justify-content: center;
+
+  flex: 1.2;
+}
+.content2 img {
+  width: 650px;
+  border-radius: 15px;
+}
+
+.image-content2 {
+  display: flex;
+  margin: auto;
+  transform: perspective(1500px) rotateY(-25deg) rotateX(15deg);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -22px;
+  border-radius: 1rem;
+  transition: transform 1s ease 0s;
+}
+.image-content2:hover {
+  transform: perspective(3000px) rotateY(5deg);
+}
+
+.explore {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 35px;
+  background-color: black;
+  border-radius: 7px;
+  transition: 0.4s;
+}
+
+.explore:hover {
+  color: white;
+  background-color: rgb(0, 0, 0, 0.75);
+}

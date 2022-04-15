@@ -1,0 +1,44 @@
+.container-covidGlobal {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  padding-bottom: 25px;
+}
+.covid-content-global {
+  flex-direction: column;
+  display: flex;
+  width: 85%;
+  margin: auto;
+  row-gap: 25px;
+}
+.covid-content-global h3 {
+  position: relative;
+  display: flex;
+  margin: auto;
+  font-size: 28px;
+  font-weight: 600;
+}
+.covid-content-global h3:after {
+  position: absolute;
+  content: '';
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: black;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.covid-content-global table {
+  margin: auto;
+}
+.filter {
+  width: 200px;
+  margin-left: 170px;
+  padding: 5px 35px;
+  font-size: 10px;
+}

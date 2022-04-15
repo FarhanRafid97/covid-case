@@ -1,0 +1,8 @@
+import axios from 'axios';
+
+export const fetchData = () =>
+  axios.get('https://data.covid19.go.id/public/api/rs.json');
+export const dataLab = () =>
+  axios.get('https://data.covid19.go.id/public/api/lab.json');
+export const dataCovidGlobal = () =>
+  axios.get('https://covid19.mathdro.id/api/confirmed');
