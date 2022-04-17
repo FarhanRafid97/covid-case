@@ -1,4 +1,5 @@
 {
+  "homepage": "https://FarhanRafid97.github.io/covid-case",
   "name": "api-react",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +10,7 @@
     "axios": "^0.26.1",
     "bulma": "^0.9.3",
     "emoji-flags": "^1.3.0",
+    "homepage": "https://github.com/FarhanRafid97/covid-case.github.io.git",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.8",
@@ -16,10 +18,11 @@
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
-    "web-vitals": "^2.1.4",
-    "homepage": "https://github.com/FarhanRafid97/covid-case.github.io.git"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

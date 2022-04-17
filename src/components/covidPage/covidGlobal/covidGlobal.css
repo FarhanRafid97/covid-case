@@ -42,3 +42,16 @@
   padding: 5px 35px;
   font-size: 10px;
 }
+
+.dangerCase {
+  color: red;
+}
+.normalCase {
+  color: green;
+}
+.dangerDeaths {
+  color: red;
+}
+.normalDeaths {
+  color: green;
+}

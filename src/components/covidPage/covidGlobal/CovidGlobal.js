@@ -69,14 +69,14 @@ const CovidProv = () => {
                     }`}</td>
                     <td
                       className={
-                        data.confirmed > 1000000 ? 'dangerCase' : 'normalCase'
+                        data.confirmed > 5000000 ? 'dangerCase' : 'normalCase'
                       }
                     >
                       {data.confirmed.toLocaleString()}
                     </td>
                     <td
                       className={
-                        data.deaths > 1000000 ? 'dangerDeaths' : 'normalDeaths'
+                        data.deaths > 100000 ? 'dangerDeaths' : 'normalDeaths'
                       }
                     >
                       {data.deaths.toLocaleString()}
