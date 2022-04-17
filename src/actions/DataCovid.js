@@ -20,7 +20,7 @@ export const dataSumbar = () => async (dispatch) => {
   }
 };
 
-export const dataCovidGlobal = () => async (dispatch) => {
+export const dataCovidGlobal = (params) => async (dispatch) => {
   try {
     const { data } = await api.dataCovidGlobal();
     const dataBerurutan = data.sort(
@@ -31,12 +31,20 @@ export const dataCovidGlobal = () => async (dispatch) => {
     for (let i = 0; i < 100; i++) {
       seratusDataGlobal.push(dataTertinggi[i]);
     }
-    dispatch({ type: 'FETCH_GLOBAL', payload: seratusDataGlobal });
+
+    const filteredData = (param) => {
+      if (param === 'caseLowTohigh') return seratusDataGlobal.reverse();
+      if (param === 'casehHighTohigh') return seratusDataGlobal;
+
+      return seratusDataGlobal;
+    };
+    dispatch({ type: 'FETCH_GLOBAL', payload: filteredData(params) });
   } catch (error) {
     console.log(error);
   }
 };
-export const dataCovidDeath = () => async (dispatch) => {
+
+export const dataCovidDeath = (params) => async (dispatch) => {
   try {
     const { data } = await api.dataCovidGlobal();
     const dataBerurutan = data.sort(
@@ -47,11 +55,15 @@ export const dataCovidDeath = () => async (dispatch) => {
     for (let i = 0; i < 100; i++) {
       seratusDataGlobal.push(dataTertinggi[i]);
     }
-    const kematianTingg = seratusDataGlobal.sort(
+    const deathCase = seratusDataGlobal.sort(
       (a, b) => parseInt(a.deaths) - parseInt(b.deaths)
     );
 
-    dispatch({ type: 'FETCH_DEATH', payload: kematianTingg.reverse() });
+    const filteredData = (param) => {
+      if (param === 'deathLowTohigh') return deathCase;
+      if (param === 'deathHighTohigh') return deathCase.reverse();
+    };
+    dispatch({ type: 'FETCH_DEATH', payload: filteredData(params) });
   } catch (error) {
     console.log(error);
   }

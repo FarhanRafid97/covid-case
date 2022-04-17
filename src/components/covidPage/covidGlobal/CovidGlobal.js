@@ -15,12 +15,18 @@ const CovidProv = () => {
     return String.fromCodePoint(...codePoints);
   }
   const handlerCase = (e) => {
-    if (e.target.value === 'confirm') {
-      dispatch(dataCovidGlobal());
-      setInfo('Berdasarkan Case');
-    } else if (e.target.value === 'death') {
-      dispatch(dataCovidDeath());
-      setInfo('Berdasarkan Kematian');
+    if (e.target.value === 'casehHighTohigh') {
+      dispatch(dataCovidGlobal('casehHighTohigh'));
+      setInfo('Case High To Low');
+    } else if (e.target.value === 'caseLowTohigh') {
+      dispatch(dataCovidGlobal('caseLowTohigh'));
+      setInfo('Case Low To High');
+    } else if (e.target.value === 'deathHighTohigh') {
+      dispatch(dataCovidDeath('deathHighTohigh'));
+      setInfo('Death High To Low');
+    } else if (e.target.value === 'deathLowTohigh') {
+      dispatch(dataCovidDeath('deathLowTohigh'));
+      setInfo('Case Low To High');
     }
   };
 
@@ -42,8 +48,10 @@ const CovidProv = () => {
               id="cars"
               onChange={handlerCase}
             >
-              <option value="confirm">Confirmed High - low</option>
-              <option value="death">Death High - low</option>
+              <option value="casehHighTohigh">Confirmed High - low</option>
+              <option value="caseLowTohigh">Case Low - High</option>
+              <option value="deathHighTohigh">Death High - low</option>
+              <option value="deathLowTohigh">Death Low - High</option>
             </select>
             <table className="table is-striped ">
               <thead>
@@ -59,8 +67,20 @@ const CovidProv = () => {
                     <td>{`${index + 1}.${getFlagEmoji(data.iso2)} ${
                       data.countryRegion
                     }`}</td>
-                    <td>{data.confirmed.toLocaleString()}</td>
-                    <td>{data.deaths.toLocaleString()}</td>
+                    <td
+                      className={
+                        data.confirmed > 1000000 ? 'dangerCase' : 'normalCase'
+                      }
+                    >
+                      {data.confirmed.toLocaleString()}
+                    </td>
+                    <td
+                      className={
+                        data.deaths > 1000000 ? 'dangerDeaths' : 'normalDeaths'
+                      }
+                    >
+                      {data.deaths.toLocaleString()}
+                    </td>
                   </tr>
                 ))}
               </tbody>
