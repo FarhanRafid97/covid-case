@@ -19,12 +19,12 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/covid" className="link">
-                  Covid
+                  Global Case
                 </Link>
               </li>
               <li>
-                <Link to="/covid" className="link">
-                  About
+                <Link to="/daily" className="link">
+                  Daily Case
                 </Link>
               </li>
               <li>

@@ -4,3 +4,16 @@ export const stringToNumber = (stringNumber) => {
   const hargaAkhir = Number(filteredHargaString.join(''));
   return hargaAkhir;
 };
+
+export const hariIni = () => {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1; // Months start at 0!
+  let dd = today.getDate() - 3;
+
+  return mm + '-' + dd + '-' + yyyy;
+};
+
+export const filterSeaCounrty = (data, nameCountry) => {
+  return data.filter((d) => d.countryRegion === nameCountry);
+};

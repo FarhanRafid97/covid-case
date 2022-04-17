@@ -1,5 +1,4 @@
 import * as api from '../api/Api';
-import { stringToNumber } from './function';
 
 export const getData = () => async (dispatch) => {
   try {

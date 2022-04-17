@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  dataCovidGlobal,
-  dataCovidDeath,
-  flagEmoji,
-} from '../../actions/DataCovid.js';
+import { dataCovidGlobal, dataCovidDeath } from '../../../actions/DataCovid.js';
 import './covidGlobal.css';
 
 const CovidProv = () => {
@@ -30,6 +26,7 @@ const CovidProv = () => {
 
   useEffect(() => {
     dispatch(dataCovidGlobal());
+    setInfo('Berdasarkan Case');
   }, []);
   console.log(dataGlobal);
 
@@ -45,8 +42,8 @@ const CovidProv = () => {
               id="cars"
               onChange={handlerCase}
             >
-              <option value="death">Death High - low</option>
               <option value="confirm">Confirmed High - low</option>
+              <option value="death">Death High - low</option>
             </select>
             <table className="table is-striped ">
               <thead>
@@ -66,6 +63,7 @@ const CovidProv = () => {
                     <td>{data.deaths.toLocaleString()}</td>
                   </tr>
                 ))}
+                {dataGlobal && <h3>Loading</h3>}
               </tbody>
             </table>
           </div>
