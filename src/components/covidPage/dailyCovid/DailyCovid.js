@@ -36,11 +36,17 @@ const DailyCovid = () => {
             id="cars"
             onChange={handlerCase}
           >
-            <option value="casehHighTohigh">Confirmed High - low</option>
+            <option value="casehHighTohigh">Case High - low</option>
             <option value="caseLowTohigh">Case Low - High</option>
             <option value="deathHighTohigh">Death High - low</option>
             <option value="deathLowTohigh">Death Low - High</option>
           </select>
+          <div class="ket-daily">
+            <div className="ket-gob">
+              <p>Case More than 1.000.000</p>
+              <div className="red-strip"></div>{' '}
+            </div>
+          </div>
           <div className="cards-covid">
             {dailyCovid.map((daily, index) => (
               <div

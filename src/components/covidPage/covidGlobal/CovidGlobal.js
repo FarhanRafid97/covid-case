@@ -41,14 +41,14 @@ const CovidProv = () => {
       <div>
         <div className="container-covidGlobal">
           <div class="covid-content-global">
-            <h3>{info}</h3>
+            <h3>Top 100 {info}</h3>
             <select
               className="filter"
               name="filter"
               id="cars"
               onChange={handlerCase}
             >
-              <option value="casehHighTohigh">Confirmed High - low</option>
+              <option value="casehHighTohigh">Case High - low</option>
               <option value="caseLowTohigh">Case Low - High</option>
               <option value="deathHighTohigh">Death High - low</option>
               <option value="deathLowTohigh">Death Low - High</option>

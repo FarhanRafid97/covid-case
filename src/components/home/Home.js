@@ -9,9 +9,9 @@ const Home = () => {
       <div class="container-home">
         <div className="content1">
           <div class="text-content1">
-            <h3>Selamat Datang Di Update Covid Padang</h3>
-            <h3>Kamu Bisa Mencari Case Terbaru</h3>
-            <Link to="/" className="explore">
+            <h3>Welcome To my Page</h3>
+            <h3>Updated Covid 19 Case</h3>
+            <Link to="/covid" className="explore">
               EXPLORE
             </Link>
           </div>

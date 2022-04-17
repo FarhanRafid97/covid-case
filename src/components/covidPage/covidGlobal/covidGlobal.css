@@ -60,6 +60,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 165px;
+  font-size: 12px;
 }
 .ket-gob {
   display: flex;
@@ -69,6 +70,9 @@
 
 .red-strip {
   height: 4px;
-  width: 40px;
+  width: 30px;
   background-color: red;
+}
+.container-dailyCovid h1 {
+  font-size: 30px;
 }
