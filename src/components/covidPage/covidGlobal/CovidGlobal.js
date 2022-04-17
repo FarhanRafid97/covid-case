@@ -26,13 +26,13 @@ const CovidProv = () => {
       setInfo('Death High To Low');
     } else if (e.target.value === 'deathLowTohigh') {
       dispatch(dataCovidDeath('deathLowTohigh'));
-      setInfo('Case Low To High');
+      setInfo('Death Low To High');
     }
   };
 
   useEffect(() => {
     dispatch(dataCovidGlobal());
-    setInfo('Berdasarkan Case');
+    setInfo('Case High To Low');
   }, []);
   console.log(dataGlobal);
 
@@ -53,6 +53,16 @@ const CovidProv = () => {
               <option value="deathHighTohigh">Death High - low</option>
               <option value="deathLowTohigh">Death Low - High</option>
             </select>
+            <div className="keterangan-global">
+              <div className="ket-gob">
+                <p>Case More than 5.000.000</p>
+                <div className="red-strip"></div>{' '}
+              </div>
+              <div className="ket-gob">
+                <p>Death More than 100.000</p>
+                <div className="red-strip"></div>{' '}
+              </div>
+            </div>
             <table className="table is-striped ">
               <thead>
                 <tr>

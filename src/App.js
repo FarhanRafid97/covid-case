@@ -12,9 +12,16 @@ const App = () => {
     <>
       <div>
         <Navbar />
-        <Home />
-        <CovidPage />
         <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Home />
+                <CovidPage />
+              </>
+            }
+          />
           <Route path="/covid" element={<CovidGlobal />} />
           <Route path="/daily" element={<DailyCovid />} />
         </Routes>

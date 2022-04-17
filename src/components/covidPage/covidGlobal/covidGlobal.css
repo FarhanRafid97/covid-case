@@ -55,3 +55,20 @@
 .normalDeaths {
   color: green;
 }
+
+.keterangan-global {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 165px;
+}
+.ket-gob {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.red-strip {
+  height: 4px;
+  width: 40px;
+  background-color: red;
+}
