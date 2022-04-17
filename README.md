@@ -11,6 +11,6 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Preview : https://sparkly-bublanina-393c3c.netlify.app/ 
+Preview : https://frs-covid19-update.netlify.app/
 
 Api : https://github.com/mathdroid/covid-19-api
