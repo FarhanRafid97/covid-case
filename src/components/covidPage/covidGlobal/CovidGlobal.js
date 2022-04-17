@@ -63,7 +63,6 @@ const CovidProv = () => {
                     <td>{data.deaths.toLocaleString()}</td>
                   </tr>
                 ))}
-                {dataGlobal && <h3>Loading</h3>}
               </tbody>
             </table>
           </div>

@@ -1,12 +1,25 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataCovidDaily } from '../../../actions/DataCovidDaily';
+import {
+  dataCovidDaily,
+  caseDailyDeaths,
+} from '../../../actions/DataCovidDaily';
 import './dailyCovid.css';
 
 const DailyCovid = () => {
   const dispatch = useDispatch();
   const dailyCovid = useSelector((state) => state.dailyCovid);
-
+  const handlerCase = (e) => {
+    if (e.target.value === 'casehHighTohigh') {
+      dispatch(dataCovidDaily('casehHighTohigh'));
+    } else if (e.target.value === 'caseLowTohigh') {
+      dispatch(dataCovidDaily('caseLowTohigh'));
+    } else if (e.target.value === 'deathHighTohigh') {
+      dispatch(caseDailyDeaths('deathHighTohigh'));
+    } else if (e.target.value === 'deathLowTohigh') {
+      dispatch(caseDailyDeaths('deathLowTohigh'));
+    }
+  };
   useEffect(() => {
     dispatch(dataCovidDaily());
   }, []);
@@ -18,10 +31,10 @@ const DailyCovid = () => {
         <div className="container-dailyCovid">
           <h1>Daily Covid Update South East Asia</h1>
           <select
-            className="filter"
+            className="filter-covidDaily"
             name="filter"
             id="cars"
-            onChange={(e) => dispatch(dataCovidDaily(e.target.value))}
+            onChange={handlerCase}
           >
             <option value="casehHighTohigh">Confirmed High - low</option>
             <option value="caseLowTohigh">Case Low - High</option>
