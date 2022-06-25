@@ -8,7 +8,7 @@ nav {
   background-color: white;
   position: fixed;
   border: 1px solid black;
-  z-index: 99;
+  z-index: 3;
 }
 .container-navbar {
   width: 85%;
@@ -23,11 +23,11 @@ nav {
   width: 60px;
 }
 .link {
+  display: flex;
   position: relative;
   text-decoration: none;
   font-size: 18px;
   font-weight: 300;
-
   color: black;
 }
 .link::after {
@@ -51,8 +51,84 @@ nav {
 }
 
 .navigasi ul {
+  position: relative;
   list-style-type: none;
   display: flex;
   align-items: center;
   column-gap: 35px;
+}
+.mobileLinkNav {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+}
+@media screen and (max-width: 720px) {
+  .link {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    position: relative;
+    font-size: 24px;
+    z-index: 99;
+    color: black;
+    transition: 1s;
+    opacity: 1;
+  }
+
+  .exitButton {
+    position: absolute;
+    font-size: 20px;
+    right: 40px;
+    top: 31px;
+    color: black;
+    transition-delay: 1s;
+    transition: 1s;
+    opacity: 0;
+  }
+  .exitButton.active {
+    opacity: 1;
+  }
+
+  .noneHmbrg {
+    transition: 1s;
+    opacity: 0;
+  }
+
+  .navbarMobile {
+    display: flex;
+    width: 100%;
+    height: 30vh;
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+    /* background-color: black; */
+    border-bottom: 1px solid black;
+    top: -240px;
+    transition: 0.9s;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbarMobile.active {
+    transition: 1s;
+    top: 0;
+  }
+  .mobileLinkNav {
+    display: flex;
+    flex-direction: column;
+
+    margin: auto;
+    text-align: center;
+    row-gap: 5px;
+  }
+  .mobileLinkNav li {
+    list-style-type: none;
+  }
+  .mobileLink {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
 }

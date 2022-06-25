@@ -1,0 +1,15 @@
+@media screen and (max-width: 520px) {
+  .container-home {
+    flex-direction: column;
+  }
+  .text-content1 {
+    display: flex;
+    align-items: center;
+  }
+  .content1 .text-content1 h3 {
+    font-size: 18px;
+  }
+  .content2 {
+    display: none;
+  }
+}

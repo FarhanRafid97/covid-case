@@ -38,7 +38,7 @@
 }
 .filter {
   width: 200px;
-  margin-left: 170px;
+  margin: auto;
   padding: 5px 35px;
   font-size: 10px;
 }
@@ -75,4 +75,22 @@
 }
 .container-dailyCovid h1 {
   font-size: 30px;
+}
+
+@media screen and (max-width: 720px) {
+  .covid-content-global h3 {
+    font-size: 16px;
+  }
+  .keterangan-global {
+    padding: 0;
+  }
+  .ket-gob p {
+    font-size: 8px;
+  }
+  th {
+    font-size: 11px;
+  }
+  td {
+    font-size: 10px;
+  }
 }

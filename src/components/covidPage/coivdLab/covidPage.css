@@ -43,3 +43,18 @@ td {
 th {
   width: 300px;
 }
+
+@media screen and (max-width: 520px) {
+  .covid-content h3 {
+    font-size: 18px;
+  }
+  .covid-content {
+    row-gap: 50px;
+  }
+  .covid-content th {
+    font-size: 10px;
+  }
+  .covid-content td {
+    font-size: 9px;
+  }
+}

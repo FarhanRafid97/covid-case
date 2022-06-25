@@ -9,10 +9,9 @@ const CovidPage = () => {
   let dataLab = useSelector((state) => state.covidLab);
 
   useEffect(() => {
-    dispatch(dataSumbar());
     dispatch(getData());
   }, []);
-  console.log(dataLab);
+  console.log(dataCovid);
   return (
     <>
       <div>

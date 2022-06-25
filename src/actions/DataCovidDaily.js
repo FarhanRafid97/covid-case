@@ -1,5 +1,6 @@
 import { hariIni, filterSeaCounrty } from './function';
 import * as api from '../api/Api';
+
 //random data covid daily
 export const dataCovidDaily = (params) => async (dispatch) => {
   try {

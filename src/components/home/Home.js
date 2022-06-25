@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import covidPict from '../../img/covid1.png';
 import { Link } from 'react-router-dom';
 import './home.css';
+import './mobileHome.css';
 
 const Home = () => {
+  const lebarWindow = window.innerWidth;
+
+  useEffect(() => {}, []);
   return (
     <div className="home">
-      <div class="container-home">
+      <div className="container-home">
         <div className="content1">
-          <div class="text-content1">
+          <div className="text-content1">
+            {lebarWindow < 500 && (
+              <img src={covidPict} className="foto-covid" alt="" />
+            )}
             <h3>Welcome To my Page</h3>
             <h3>Updated Covid 19 Case</h3>
             <Link to="/covid" className="explore">

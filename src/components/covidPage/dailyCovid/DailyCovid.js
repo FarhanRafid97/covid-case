@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   dataCovidDaily,
@@ -8,6 +8,7 @@ import './dailyCovid.css';
 
 const DailyCovid = () => {
   const dispatch = useDispatch();
+
   const dailyCovid = useSelector((state) => state.dailyCovid);
   const handlerCase = (e) => {
     if (e.target.value === 'casehHighTohigh') {
@@ -20,10 +21,18 @@ const DailyCovid = () => {
       dispatch(caseDailyDeaths('deathLowTohigh'));
     }
   };
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    dispatch(dataCovidDaily());
+    setTimeout(() => {
+      dispatch(dataCovidDaily());
+      setLoading(false);
+    }, 1000);
   }, []);
   console.log(dailyCovid);
+  if (loading) {
+    return <h3>Loading</h3>;
+  }
 
   return (
     <>
@@ -48,7 +57,7 @@ const DailyCovid = () => {
             </div>
           </div>
           <div className="cards-covid">
-            {dailyCovid.map((daily, index) => (
+            {dailyCovid?.map((daily, index) => (
               <div
                 className={
                   daily.confirmed > 1000000 ? 'card-covid danger' : 'card-covid'

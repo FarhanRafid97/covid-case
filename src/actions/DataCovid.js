@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import * as api from '../api/Api';
 
 export const getData = () => async (dispatch) => {
   try {
     const { data } = await api.fetchData();
+    const dataSeratus = [];
+    for (let i = 0; i < 100; i++) {
+      dataSeratus.push(data[i]);
+    }
+
     dispatch({ type: 'FETCH_DATA', payload: data });
   } catch (error) {
     console.log(error);
@@ -14,7 +20,7 @@ export const dataSumbar = () => async (dispatch) => {
     const sumbar = data.filter(
       (d) => d.provinsi === 'SUMATERA BARAT' && d.alamat !== ''
     );
-    dispatch({ type: 'FETCH_SUMBAR', payload: sumbar });
+    dispatch({ type: 'FETCH_SUMBAR', payload: data });
   } catch (error) {
     console.log(error);
   }

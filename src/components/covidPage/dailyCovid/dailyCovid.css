@@ -6,6 +6,7 @@
 .container-dailyCovid {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+
   padding: 35px;
   width: 85%;
   margin: auto;
@@ -69,4 +70,23 @@
 }
 .update {
   border-top: 1px solid black;
+}
+
+@media screen and (max-width: 720px) {
+  .container-dailyCovid h1 {
+    font-size: 16px;
+  }
+  .ket-daily .ket-gob p {
+    font-size: 17px;
+  }
+  .container-dailyCovid {
+    width: 100%;
+  }
+  .cards-covid {
+    padding: 0;
+    width: 100%;
+  }
+  .card-covid {
+    width: 300px;
+  }
 }

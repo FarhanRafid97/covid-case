@@ -2,6 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataCovidGlobal, dataCovidDeath } from '../../../actions/DataCovid.js';
 import './covidGlobal.css';
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react';
 
 const CovidProv = () => {
   const dispatch = useDispatch();
@@ -32,7 +43,6 @@ const CovidProv = () => {
 
   useEffect(() => {
     dispatch(dataCovidGlobal());
-    setInfo('Case High To Low');
   }, []);
   console.log(dataGlobal);
 
@@ -63,38 +73,43 @@ const CovidProv = () => {
                 <div className="red-strip"></div>{' '}
               </div>
             </div>
-            <table className="table is-striped ">
-              <thead>
-                <tr>
-                  <th>Country</th>
-                  <th>👻 Case</th>
-                  <th>💀 Death</th>
-                </tr>
-              </thead>
-              <tbody>
-                {dataGlobal?.map((data, index) => (
-                  <tr key={index}>
-                    <td>{`${index + 1}.${getFlagEmoji(data.iso2)} ${
-                      data.countryRegion
-                    }`}</td>
-                    <td
-                      className={
-                        data.confirmed > 5000000 ? 'dangerCase' : 'normalCase'
-                      }
-                    >
-                      {data.confirmed.toLocaleString()}
-                    </td>
-                    <td
-                      className={
-                        data.deaths > 100000 ? 'dangerDeaths' : 'normalDeaths'
-                      }
-                    >
-                      {data.deaths.toLocaleString()}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <TableContainer>
+              <Table variant="striped" colorScheme="blackAlpha">
+                <TableCaption>
+                  Imperial to metric conversion factors
+                </TableCaption>
+                <Thead>
+                  <Tr>
+                    <Th>Country</Th>
+                    <Th>Case</Th>
+                    <Th>Death</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {dataGlobal?.map((data, index) => (
+                    <Tr key={index}>
+                      <Td>{`${index + 1}.${getFlagEmoji(data.iso2)} ${
+                        data.countryRegion
+                      }`}</Td>
+                      <Td
+                        className={
+                          data.confirmed > 5000000 ? 'dangerCase' : 'normalCase'
+                        }
+                      >
+                        {data.confirmed.toLocaleString()}
+                      </Td>
+                      <Td
+                        className={
+                          data.deaths > 100000 ? 'dangerDeaths' : 'normalDeaths'
+                        }
+                      >
+                        {data.deaths.toLocaleString()}
+                      </Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+              </Table>
+            </TableContainer>
           </div>
         </div>
       </div>
