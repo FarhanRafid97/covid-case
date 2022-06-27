@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import covidPict from '../../img/covid1.png';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import covidPict from '../../img/covid1.png';
 import './home.css';
 import './mobileHome.css';
 

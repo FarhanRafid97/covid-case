@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import { Box } from '@chakra-ui/react';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
+import React, { useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { useSelector, useDispatch } from 'react-redux';
-import { Box } from '@chakra-ui/react';
+import { useDispatch, useSelector } from 'react-redux';
 import { dataCovidDaily } from '../../../actions/DataCovidDaily';
 
 ChartJS.register(
@@ -40,14 +40,18 @@ const SeaCartDeath = () => {
   const dailyCovid19 = useSelector((state) => state.dailyCovid);
 
   const labels = dailyCovid19.map((data) => data.countryRegion);
+  const dataTest = dailyCovid19.sort(
+    (a, b) => Number(a.deaths) - Number(b.deaths)
+  );
+  console.log('dailey case sort', dailyCovid19);
 
   const data = {
     labels,
     datasets: [
       {
         label: 'Deaths',
-        data: dailyCovid19.map((data, data2) => data.deaths),
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        data: dataTest.map((data) => data.deaths).reverse(),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   };

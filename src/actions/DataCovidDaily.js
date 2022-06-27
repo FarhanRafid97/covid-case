@@ -5,7 +5,7 @@ import * as api from '../api/Api';
 export const dataCovidDaily = (params) => async (dispatch) => {
   try {
     const { data } = await api.dailyCovidUpdate(hariIni());
-
+    console.log(hariIni());
     const indonesiaDaily = filterSeaCounrty(data, 'Indonesia');
     const laos = filterSeaCounrty(data, 'Laos');
     const brunei = filterSeaCounrty(data, 'Brunei');

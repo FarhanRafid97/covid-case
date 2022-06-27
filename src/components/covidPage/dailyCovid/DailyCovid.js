@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  dataCovidDaily,
   caseDailyDeaths,
+  dataCovidDaily,
 } from '../../../actions/DataCovidDaily';
 import './dailyCovid.css';
 
@@ -21,18 +21,10 @@ const DailyCovid = () => {
       dispatch(caseDailyDeaths('deathLowTohigh'));
     }
   };
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(dataCovidDaily());
-      setLoading(false);
-    }, 1000);
-  }, []);
-  console.log(dailyCovid);
-  if (loading) {
-    return <h3>Loading</h3>;
-  }
+    dispatch(dataCovidDaily());
+  }, [dispatch]);
 
   return (
     <>

@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { dataCovidGlobal, dataCovidDeath } from '../../../actions/DataCovid.js';
-import './covidGlobal.css';
 import {
   Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
   TableCaption,
   TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
 } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { dataCovidDeath, dataCovidGlobal } from '../../../actions/DataCovid.js';
+import './covidGlobal.css';
 
 const CovidProv = () => {
   const dispatch = useDispatch();
@@ -43,7 +42,7 @@ const CovidProv = () => {
 
   useEffect(() => {
     dispatch(dataCovidGlobal());
-  }, []);
+  }, [dispatch]);
   console.log(dataGlobal);
 
   return (

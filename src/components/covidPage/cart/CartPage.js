@@ -1,9 +1,9 @@
-import React from 'react';
 import { Box } from '@chakra-ui/react';
+import React from 'react';
 import Cart from './Cart';
 import CartGlobal from './CartGlobal';
-import SeaCartDeath from './SeaCartDeath';
 import CartGlobalDeath from './CartGlobalDeath';
+import SeaCartDeath from './SeaCartDeath';
 const CartPage = () => {
   return (
     <Box>

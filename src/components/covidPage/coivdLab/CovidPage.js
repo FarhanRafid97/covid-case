@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataSumbar, getData } from '../../../actions/DataCovid.js';
+import { getData } from '../../../actions/DataCovid.js';
 import './covidPage.css';
 
 const CovidPage = () => {
@@ -10,7 +10,7 @@ const CovidPage = () => {
 
   useEffect(() => {
     dispatch(getData());
-  }, []);
+  }, [dispatch]);
   console.log(dataCovid);
   return (
     <>

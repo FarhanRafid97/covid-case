@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { ImCross } from 'react-icons/im';
 import { Link } from 'react-router-dom';
 import logo from '../../img/logo.png';
 import './navbar.css';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { ImCross } from 'react-icons/im';
 
 const Navbar = () => {
   const [navMobile, setNavMobile] = useState(false);

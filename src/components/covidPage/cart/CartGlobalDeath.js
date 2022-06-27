@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import { Box } from '@chakra-ui/react';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
+import React, { useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { useSelector, useDispatch } from 'react-redux';
-import { Box } from '@chakra-ui/react';
+import { useDispatch, useSelector } from 'react-redux';
 import { dataCovidGlobal } from '../../../actions/DataCovid.js';
 
 ChartJS.register(
@@ -30,7 +30,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'South east Asia Covid 19 case',
+      text: 'Top 100 Global Covid Sort By Deaths',
     },
   },
 };
@@ -49,7 +49,7 @@ const CartGlobalDeath = () => {
       {
         label: 'Deaths',
         data: dataTst.map((data) => data.deaths).reverse(),
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   };

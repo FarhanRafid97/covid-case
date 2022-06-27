@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import { Box } from '@chakra-ui/react';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
-import { Bar, Line, Chart } from 'react-chartjs-2';
-import { useSelector, useDispatch } from 'react-redux';
-import { Box } from '@chakra-ui/react';
+import React, { useEffect } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { useDispatch, useSelector } from 'react-redux';
 import { dataCovidDaily } from '../../../actions/DataCovidDaily';
 
 ChartJS.register(
@@ -24,7 +24,7 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
-  indexAxis: 'y',
+
   plugins: {
     legend: {
       position: 'top',
@@ -51,7 +51,7 @@ const Cart = () => {
         label: 'Confirmed',
 
         data: dailyCovid19.map((data) => data.confirmed),
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgba(255, 165, 0,0.3)',
       },
     ],
   };
