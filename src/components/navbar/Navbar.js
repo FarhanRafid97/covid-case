@@ -1,11 +1,13 @@
+import { ListItem, UnorderedList, Flex, Link, Box } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
-import { Link } from 'react-router-dom';
+import { Link as ReachLink } from 'react-router-dom';
 import logo from '../../img/logo.png';
+import navbarData from './navbar.json';
 import './navbar.css';
-
+import NavMobile from './NavMobile';
 const Navbar = () => {
+  const dataNavigasi = navbarData.nav;
   const [navMobile, setNavMobile] = useState(false);
   const [isMobile, setIstMobile] = useState(false);
   const togleNav = () => setNavMobile(!navMobile);
@@ -30,83 +32,32 @@ const Navbar = () => {
   }, [navMobile]);
   return (
     <nav>
-      <div className={navMobile ? 'navbarMobile active' : 'navbarMobile'}>
-        <div className="navigasiMobile">
-          <div>
-            <ImCross
-              class={navMobile ? 'exitButton active' : 'exitButton'}
-              onClick={togleNav}
-            />
-          </div>
-          <div onClick={togleNav} className="mobileLinkNav">
-            <li>
-              <Link to="/" className="mobileLink">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/covid" className="mobileLink">
-                Global Case
-              </Link>
-            </li>
-            <li>
-              <Link to="/daily" className="mobileLink">
-                SEA Case
-              </Link>
-            </li>
-            <li>
-              <Link to="/cart" className="mobileLink">
-                Cart Version
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="mobileLink">
-                Contact
-              </Link>
-            </li>
-          </div>
-        </div>
-      </div>
-
       <div className="navbar-me">
-        <div class="container-navbar">
+        <div className="container-navbar">
           <div className="logo">
             <img src={logo} alt="" />
           </div>
-
-          <div className="navigasi">
-            <ul>
-              <li>
-                <Link to="/" className="link">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/covid" className="link">
-                  Global Case
-                </Link>
-              </li>
-              <li>
-                <Link to="/daily" className="link">
-                  SEA Case
-                </Link>
-              </li>
-              <li>
-                <Link to="/cart" className="mobileLink">
-                  Cart Version
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="link">
-                  Contact
-                </Link>
-              </li>
-              <GiHamburgerMenu
-                className={navMobile ? 'noneHmbrg' : 'hamburger'}
-                onClick={togleNav}
-              />
-            </ul>
-          </div>
+          <Box display={['flex', 'none']}>
+            <NavMobile dataNavigasi={dataNavigasi} />
+          </Box>
+          <Box display={['none', 'flex']}>
+            <UnorderedList display="flex" listStyleType="none" columnGap="10px">
+              {dataNavigasi.map((data, i) => (
+                <ListItem key={i}>
+                  <Link
+                    padding="4px 10px"
+                    borderRadius="4px"
+                    transition="0.4s"
+                    _hover={{ bg: 'gray.400' }}
+                    as={ReachLink}
+                    to={data.href}
+                  >
+                    {data.nama}
+                  </Link>
+                </ListItem>
+              ))}
+            </UnorderedList>
+          </Box>
         </div>
       </div>
     </nav>

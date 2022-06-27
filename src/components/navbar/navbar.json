@@ -1,0 +1,25 @@
+{
+  "nav": [
+    {
+      "nama": "Home",
+      "href": "/"
+    },
+    {
+      "nama": "Global Case",
+      "href": "/covid"
+    },
+    {
+      "nama": "SEA Case",
+      "href": "/daily"
+    },
+    {
+      "nama": " Cart Version",
+      "href": "/cart"
+    },
+
+    {
+      "nama": "Contact",
+      "href": "/contact"
+    }
+  ]
+}

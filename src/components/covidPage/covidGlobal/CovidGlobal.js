@@ -6,12 +6,16 @@ import {
   Td,
   Th,
   Thead,
+  Flex,
   Tr,
+  Heading,
+  Box,
+  Select,
+  Text,
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataCovidDeath, dataCovidGlobal } from '../../../actions/DataCovid.js';
-import './covidGlobal.css';
 
 const CovidProv = () => {
   const dispatch = useDispatch();
@@ -47,71 +51,84 @@ const CovidProv = () => {
 
   return (
     <>
-      <div>
-        <div className="container-covidGlobal">
-          <div class="covid-content-global">
-            <h3>Top 100 {info}</h3>
-            <select
-              className="filter"
-              name="filter"
-              id="cars"
-              onChange={handlerCase}
+      <Box>
+        <Flex direction="column" w="100%" alignItems="center" rowGap="25px">
+          <Heading fontSize={['18px', '24px']}> Top 100 {info}</Heading>
+          <Select
+            width="300px"
+            size={['xs', 'md']}
+            name="filter"
+            id="cars"
+            onChange={handlerCase}
+          >
+            <option value="casehHighTohigh">Case High - low</option>
+            <option value="caseLowTohigh">Case Low - High</option>
+            <option value="deathHighTohigh">Death High - low</option>
+            <option value="deathLowTohigh">Death Low - High</option>
+          </Select>
+          <Flex
+            fontSize={['12px']}
+            direction={['column', 'row']}
+            justifyContent="space-between"
+            w="80%"
+            rowGap="15px"
+          >
+            <Flex
+              className="ket-gob"
+              justifyContent="center"
+              alignItems="center"
+              columnGap="5px"
             >
-              <option value="casehHighTohigh">Case High - low</option>
-              <option value="caseLowTohigh">Case Low - High</option>
-              <option value="deathHighTohigh">Death High - low</option>
-              <option value="deathLowTohigh">Death Low - High</option>
-            </select>
-            <div className="keterangan-global">
-              <div className="ket-gob">
-                <p>Case More than 5.000.000</p>
-                <div className="red-strip"></div>{' '}
-              </div>
-              <div className="ket-gob">
-                <p>Death More than 100.000</p>
-                <div className="red-strip"></div>{' '}
-              </div>
-            </div>
-            <TableContainer>
-              <Table variant="striped" colorScheme="blackAlpha">
-                <TableCaption>
-                  Imperial to metric conversion factors
-                </TableCaption>
-                <Thead>
-                  <Tr>
-                    <Th>Country</Th>
-                    <Th>Case</Th>
-                    <Th>Death</Th>
+              <Text>Case More than 5.000.000</Text>
+              <Box w="50px" h="5px" bg="red"></Box>
+            </Flex>
+            <Flex
+              className="ket-gob"
+              justifyContent="center"
+              alignItems="center"
+              columnGap="5px"
+            >
+              <Text>Death More than 100.000</Text>
+              <Box w="50px" h="5px" bg="red"></Box>
+            </Flex>
+          </Flex>
+          <TableContainer w={['95%', '80%']}>
+            <Table variant="striped" colorScheme="blackAlpha">
+              <TableCaption>Imperial to metric conversion factors</TableCaption>
+              <Thead>
+                <Tr>
+                  <Th fontSize={['10px']}>Country</Th>
+                  <Th fontSize={['10px']}>Case</Th>
+                  <Th fontSize={['10px']}>Death</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {dataGlobal?.map((data, index) => (
+                  <Tr key={index} fontSize="10px">
+                    <Td>{`${index + 1}.${getFlagEmoji(data.iso2)} ${
+                      data.countryRegion
+                    }`}</Td>
+                    <Td
+                      className={
+                        data.confirmed > 5000000 ? 'dangerCase' : 'normalCase'
+                      }
+                    >
+                      {data.confirmed.toLocaleString()}
+                    </Td>
+                    <Td
+                      className={
+                        data.deaths > 100000 ? 'dangerDeaths' : 'normalDeaths'
+                      }
+                    >
+                      {data.deaths.toLocaleString()}
+                    </Td>
                   </Tr>
-                </Thead>
-                <Tbody>
-                  {dataGlobal?.map((data, index) => (
-                    <Tr key={index}>
-                      <Td>{`${index + 1}.${getFlagEmoji(data.iso2)} ${
-                        data.countryRegion
-                      }`}</Td>
-                      <Td
-                        className={
-                          data.confirmed > 5000000 ? 'dangerCase' : 'normalCase'
-                        }
-                      >
-                        {data.confirmed.toLocaleString()}
-                      </Td>
-                      <Td
-                        className={
-                          data.deaths > 100000 ? 'dangerDeaths' : 'normalDeaths'
-                        }
-                      >
-                        {data.deaths.toLocaleString()}
-                      </Td>
-                    </Tr>
-                  ))}
-                </Tbody>
-              </Table>
-            </TableContainer>
-          </div>
-        </div>
-      </div>
+                ))}
+              </Tbody>
+            </Table>
+          </TableContainer>
+        </Flex>
+      </Box>
     </>
   );
 };
