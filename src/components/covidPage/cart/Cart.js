@@ -51,7 +51,7 @@ const Cart = () => {
         label: 'Confirmed',
 
         data: dailyCovid19.map((data) => data.confirmed),
-        backgroundColor: 'rgba(255, 165, 0,0.3)',
+        backgroundColor: 'rgba(66, 165, 245,0.35)',
       },
     ],
   };

@@ -1,24 +1,24 @@
-import React from 'react';
 import {
+  Box,
   Drawer,
   DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  useDisclosure,
+  Link,
   ListItem,
   UnorderedList,
-  Link,
-  Box,
+  useDisclosure,
 } from '@chakra-ui/react';
-
-import { Link as ReachLink } from 'react-router-dom';
+import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { Link as ReachLink } from 'react-router-dom';
+
 const NavMobile = ({ dataNavigasi }) => {
   console.log(dataNavigasi);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [placement, setPlacement] = React.useState('right');
+
   return (
     <>
       <GiHamburgerMenu onClick={onOpen} />
@@ -38,7 +38,7 @@ const NavMobile = ({ dataNavigasi }) => {
                 rowGap="15px"
               >
                 {dataNavigasi.map((data, i) => (
-                  <ListItem key={i}>
+                  <ListItem key={i} onClose={onclose}>
                     <Link
                       padding="4px 10px"
                       borderRadius="4px"
@@ -46,6 +46,7 @@ const NavMobile = ({ dataNavigasi }) => {
                       _hover={{ bg: 'gray.400' }}
                       as={ReachLink}
                       to={data.href}
+                      onClick={onClose}
                     >
                       {data.nama}
                     </Link>

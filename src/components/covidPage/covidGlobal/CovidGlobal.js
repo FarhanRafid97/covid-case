@@ -97,29 +97,23 @@ const CovidProv = () => {
               <TableCaption>Imperial to metric conversion factors</TableCaption>
               <Thead>
                 <Tr>
-                  <Th fontSize={['10px']}>Country</Th>
-                  <Th fontSize={['10px']}>Case</Th>
-                  <Th fontSize={['10px']}>Death</Th>
+                  <Th fontSize={['10px', '14px']}>Country</Th>
+                  <Th fontSize={['10px', '14px']}>Case</Th>
+                  <Th fontSize={['10px', '14px']}>Death</Th>
                 </Tr>
               </Thead>
               <Tbody>
                 {dataGlobal?.map((data, index) => (
-                  <Tr key={index} fontSize="10px">
+                  <Tr key={index} fontSize={['10px', '14px']}>
                     <Td>{`${index + 1}.${getFlagEmoji(data.iso2)} ${
                       data.countryRegion
                     }`}</Td>
                     <Td
-                      className={
-                        data.confirmed > 5000000 ? 'dangerCase' : 'normalCase'
-                      }
+                      color={data.confirmed > 5000000 ? 'red.400' : 'green.400'}
                     >
                       {data.confirmed.toLocaleString()}
                     </Td>
-                    <Td
-                      className={
-                        data.deaths > 100000 ? 'dangerDeaths' : 'normalDeaths'
-                      }
-                    >
+                    <Td color={data.deaths > 100000 ? 'red.400' : 'green.400'}>
                       {data.deaths.toLocaleString()}
                     </Td>
                   </Tr>

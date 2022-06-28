@@ -1,35 +1,13 @@
-import { ListItem, UnorderedList, Flex, Link, Box } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
-import { ImCross } from 'react-icons/im';
+import { Box, Link, ListItem, UnorderedList } from '@chakra-ui/react';
+import React from 'react';
 import { Link as ReachLink } from 'react-router-dom';
 import logo from '../../img/logo.png';
-import navbarData from './navbar.json';
 import './navbar.css';
+import navbarData from './navbar.json';
 import NavMobile from './NavMobile';
 const Navbar = () => {
   const dataNavigasi = navbarData.nav;
-  const [navMobile, setNavMobile] = useState(false);
-  const [isMobile, setIstMobile] = useState(false);
-  const togleNav = () => setNavMobile(!navMobile);
-  const handleResize = () => {
-    if (window.innerWidth < 720) {
-      setIstMobile(true);
-    } else {
-      setIstMobile(false);
-    }
-  };
-  useEffect(() => {
-    const bodyTest = () => {
-      if (navMobile) {
-        document.body.style.overflowY = 'hidden';
-        document.body.style.height = '100vh';
-      } else {
-        document.body.style.overflowY = 'visible';
-      }
-    };
-    bodyTest();
-    window.addEventListener('resize', handleResize);
-  }, [navMobile]);
+
   return (
     <nav>
       <div className="navbar-me">
@@ -37,10 +15,10 @@ const Navbar = () => {
           <div className="logo">
             <img src={logo} alt="" />
           </div>
-          <Box display={['flex', 'none']}>
+          <Box display={['flex', 'flex', 'none']}>
             <NavMobile dataNavigasi={dataNavigasi} />
           </Box>
-          <Box display={['none', 'flex']}>
+          <Box display={['none', ',none', 'flex']}>
             <UnorderedList display="flex" listStyleType="none" columnGap="10px">
               {dataNavigasi.map((data, i) => (
                 <ListItem key={i}>
