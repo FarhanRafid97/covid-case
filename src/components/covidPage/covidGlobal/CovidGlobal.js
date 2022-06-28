@@ -12,6 +12,7 @@ import {
   Box,
   Select,
   Text,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +20,7 @@ import { dataCovidDeath, dataCovidGlobal } from '../../../actions/DataCovid.js';
 
 const CovidProv = () => {
   const dispatch = useDispatch();
+  const bgColor = useColorModeValue('gray.50', 'whiteAlpha.50');
   const dataGlobal = useSelector((state) => state.covidGlobal);
   const [info, setInfo] = useState('');
   function getFlagEmoji(countryCode) {
@@ -51,7 +53,7 @@ const CovidProv = () => {
 
   return (
     <>
-      <Box>
+      <Box mt="71px" paddingTop="45px" bg={bgColor}>
         <Flex direction="column" w="100%" alignItems="center" rowGap="25px">
           <Heading fontSize={['18px', '24px']}> Top 100 {info}</Heading>
           <Select

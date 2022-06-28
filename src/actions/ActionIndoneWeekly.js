@@ -1,4 +1,3 @@
-import { data } from 'emoji-flags';
 import { hariIni, filterSeaCounrty } from './function';
 import * as api from '../api/Api';
 

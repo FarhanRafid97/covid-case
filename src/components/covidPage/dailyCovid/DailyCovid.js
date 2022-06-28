@@ -1,3 +1,4 @@
+import { Box, Heading, Text, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -25,10 +26,12 @@ const DailyCovid = () => {
   useEffect(() => {
     dispatch(dataCovidDaily());
   }, [dispatch]);
+  const bgColor = useColorModeValue('white', 'whiteAlpha.50');
+  const cardColor = useColorModeValue('blackAlpha.50', 'whiteAlpha.50');
 
   return (
     <>
-      <div className="dailyCovid">
+      <Box bg={bgColor} mt="71px">
         <div className="container-dailyCovid">
           <h1>Daily Covid Update South East Asia</h1>
           <select
@@ -50,29 +53,39 @@ const DailyCovid = () => {
           </div>
           <div className="cards-covid">
             {dailyCovid?.map((daily, index) => (
-              <div
-                className={
-                  daily.confirmed > 1000000 ? 'card-covid danger' : 'card-covid'
-                }
+              <Box
+                p="30px 25px"
+                w="250px"
+                bg={cardColor}
                 key={index}
+                borderTop={
+                  Number(daily.confirmed) > 1000000
+                    ? '1px solid red'
+                    : '1px solid green'
+                }
               >
-                <div className="country">
-                  <h3 className="">{`${daily.countryRegion}`}</h3>
-                </div>
-                <div className="case">
-                  <p className="confirmed">
-                    Case:{Number(daily.confirmed).toLocaleString()}
-                  </p>
-                  <p className="death">
+                <Box paddingBottom="15px" borderBottom="2px">
+                  <Heading size="md">{`${daily.countryRegion}`}</Heading>
+                </Box>
+                <Box mt={5}>
+                  <Text>Case:{Number(daily.confirmed).toLocaleString()}</Text>
+                  <Text mt={2} mb={2}>
                     Death:{Number(daily.deaths).toLocaleString()}
-                  </p>
-                  <p className="update">Last Update {daily.lastUpdate}</p>
-                </div>
-              </div>
+                  </Text>
+                  <Text
+                    mt={4}
+                    paddingTop="15px"
+                    borderTop="2px"
+                    fontSize="12px"
+                  >
+                    Last Update {daily.lastUpdate}
+                  </Text>
+                </Box>
+              </Box>
             ))}
           </div>
         </div>
-      </div>
+      </Box>
     </>
   );
 };

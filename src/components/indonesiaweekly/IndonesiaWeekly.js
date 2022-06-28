@@ -1,7 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { weeklyIndonesiaCase } from '../../actions/ActionIndoneWeekly';
-import { Box, Spinner, Flex } from '@chakra-ui/react';
+import { Box, Flex, Spinner, useColorModeValue } from '@chakra-ui/react';
 import {
   BarElement,
   CategoryScale,
@@ -11,7 +8,10 @@ import {
   Title,
   Tooltip,
 } from 'chart.js';
+import React, { useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { useDispatch, useSelector } from 'react-redux';
+import { weeklyIndonesiaCase } from '../../actions/ActionIndoneWeekly';
 
 ChartJS.register(
   CategoryScale,
@@ -35,6 +35,7 @@ export const options = {
 };
 
 const IndonesiaWeekly = () => {
+  const bgColor = useColorModeValue('gray.50', 'whiteAlpha.50');
   const dispatach = useDispatch();
 
   const weeklyData = useSelector((state) => state.IndonesiaWeekly);
@@ -57,7 +58,15 @@ const IndonesiaWeekly = () => {
     dispatach(weeklyIndonesiaCase());
   }, [dispatach]);
   return (
-    <Flex minW="100vw" minH="100vh" justifyContent="center">
+    <Flex
+      minW="100vw"
+      minH="100vh"
+      justifyContent="center"
+      mt="71px"
+      paddingTop="25px"
+      alignItems="center"
+      bg={bgColor}
+    >
       {weeklyData.length > 0 ? (
         <Box w="100%" h="100%" fontSize="12px">
           <Bar options={options} data={data} />
