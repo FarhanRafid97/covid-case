@@ -5,13 +5,13 @@ import './covidPage.css';
 
 const CovidPage = () => {
   const dispatch = useDispatch();
-  let dataCovid = useSelector((state) => state.dataCovid);
+
   let dataLab = useSelector((state) => state.covidLab);
 
   useEffect(() => {
     dispatch(getData());
   }, [dispatch]);
-  console.log(dataCovid);
+
   return (
     <>
       <div>

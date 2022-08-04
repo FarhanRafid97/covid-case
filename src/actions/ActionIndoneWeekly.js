@@ -4,7 +4,7 @@ import * as api from '../api/Api';
 export const weeklyIndonesiaCase = (params) => async (dispatch) => {
   try {
     let dataSementara = [];
-    for (let i = 4; i < 11; i++) {
+    for (let i = 5; i < 11; i++) {
       const { data } = await api.dailyCovidUpdate(hariIni(i));
       dataSementara.push(filterSeaCounrty(data, 'Indonesia')[0]);
     }

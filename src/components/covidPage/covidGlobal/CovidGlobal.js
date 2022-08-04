@@ -49,7 +49,6 @@ const CovidProv = () => {
   useEffect(() => {
     dispatch(dataCovidGlobal());
   }, [dispatch]);
-  console.log(dataGlobal);
 
   return (
     <>

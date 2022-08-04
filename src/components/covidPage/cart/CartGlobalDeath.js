@@ -42,7 +42,7 @@ const CartGlobalDeath = () => {
   const labels = dataGlobal.map((data, index) => data.countryRegion);
 
   const dataTst = dataGlobal.sort((a, b) => a.deaths - b.deaths);
-  console.log(dataTst);
+
   const data = {
     labels,
     datasets: [

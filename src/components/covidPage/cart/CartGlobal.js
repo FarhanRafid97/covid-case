@@ -41,8 +41,6 @@ const CartGlobal = () => {
 
   const labels = dataGlobal.map((data, index) => data.countryRegion);
 
-  //   console.log(labels);
-
   const data = {
     labels,
     datasets: [

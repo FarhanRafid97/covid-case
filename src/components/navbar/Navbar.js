@@ -21,7 +21,7 @@ const Navbar = () => {
   const { toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue('gray.100', 'gray.700');
   const IconDarkMode = useColorModeValue(<BsFillMoonFill />, <BsFillSunFill />);
-  console.log(toggleColorMode);
+
   return (
     <Flex bgColor={bgColor} position="fixed" w="100%" top="0">
       <Flex justifyContent="space-between" w="100%">
@@ -29,14 +29,14 @@ const Navbar = () => {
           <Box w="50px">
             <img src={logo} alt="" />
           </Box>
-          <Box display={['flex', 'flex', 'none']}>
+          <Box display={['flex', 'flex', 'none', 'none']}>
             <NavMobile dataNavigasi={dataNavigasi} />
           </Box>
-          <Box display={['none', ',none', 'flex']}>
+          <Box display={['none', ',none', 'flex', 'flex']}>
             <UnorderedList
               display="flex"
               listStyleType="none"
-              columnGap="10px"
+              columnGap={['5px', '5px', '5px', '10px']}
               alignItems="center"
             >
               {dataNavigasi.map((data, i) => (
@@ -44,6 +44,7 @@ const Navbar = () => {
                   <Link
                     padding="4px 10px"
                     borderRadius="4px"
+                    fontSize={['12px', '12px', '12px', '18px']}
                     transition="0.4s"
                     _hover={{ bg: 'gray.400' }}
                     as={ReachLink}

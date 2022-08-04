@@ -53,7 +53,7 @@ const IndonesiaWeekly = () => {
       },
     ],
   };
-  console.log(labels);
+
   useEffect(() => {
     dispatach(weeklyIndonesiaCase());
   }, [dispatach]);

@@ -16,7 +16,6 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link as ReachLink } from 'react-router-dom';
 
 const NavMobile = ({ dataNavigasi }) => {
-  console.log(dataNavigasi);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (

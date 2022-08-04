@@ -43,7 +43,6 @@ const SeaCartDeath = () => {
   const dataTest = dailyCovid19.sort(
     (a, b) => Number(a.deaths) - Number(b.deaths)
   );
-  console.log('dailey case sort', dailyCovid19);
 
   const data = {
     labels,

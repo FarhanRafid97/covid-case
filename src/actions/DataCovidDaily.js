@@ -1,11 +1,10 @@
 import { hariIni, filterSeaCounrty } from './function';
 import * as api from '../api/Api';
 
-//random data covid daily
 export const dataCovidDaily = (params) => async (dispatch) => {
   try {
-    const { data } = await api.dailyCovidUpdate(hariIni(4));
-    console.log(hariIni());
+    const { data } = await api.dailyCovidUpdate(hariIni(3));
+
     const indonesiaDaily = filterSeaCounrty(data, 'Indonesia');
     const laos = filterSeaCounrty(data, 'Laos');
     const brunei = filterSeaCounrty(data, 'Brunei');
@@ -45,8 +44,7 @@ export const dataCovidDaily = (params) => async (dispatch) => {
 };
 export const caseDailyDeaths = (params) => async (dispatch) => {
   try {
-    const { data } = await api.dailyCovidUpdate(hariIni(4));
-
+    const { data } = await api.dailyCovidUpdate(hariIni(3));
     const indonesiaDaily = filterSeaCounrty(data, 'Indonesia');
     const laos = filterSeaCounrty(data, 'Laos');
     const brunei = filterSeaCounrty(data, 'Brunei');
